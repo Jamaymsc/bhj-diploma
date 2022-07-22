@@ -12,11 +12,7 @@ class TransactionsPage {
 
 
   update() {
-    try {
-      this.render(this.lastOptions);
-   } catch {
-      return null;
-   }
+    this.render(this.lastOptions);
   }
 
   registerEvents() {

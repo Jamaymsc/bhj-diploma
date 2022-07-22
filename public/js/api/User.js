@@ -11,12 +11,8 @@ localStorage.removeItem("user");
   }
 
   static current() {
-    try {
-      return JSON.parse(localStorage.getItem("user"));
-    } catch {
-      return;
-    }
-  }
+    return JSON.parse(localStorage.getItem("user"));
+       }  
 
   static fetch(callback) {
     createRequest({
@@ -47,7 +43,7 @@ localStorage.removeItem("user");
 
   static login(data, callback) {
     createRequest({
-      url: this.URL + '/login',
+      url: this.url + '/login',
       method: 'POST',
       responseType: 'json',
       data,

@@ -18,20 +18,14 @@ const createRequest = (options = {}) => {
         }
     }
 
+    xhr.onload = () => {
+        callback(null, xhr.response);
+    }
+
     try {
         xhr.open(method, url);
-        if (method === 'GET') {
-            xhr.send();
-        } else {
-            xhr.send(formData);
-        }
+        xhr.send(formData);
     } catch (error) {
         callback(error);
     }
-
-    xhr.addEventListener('readystatechange', () => {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            callback(null, xhr.response);
-        }
-    });
 };
